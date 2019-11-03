@@ -39,10 +39,6 @@ function drawList($trigger = 0, $id = 0){
 
 }
 ?>
-
-    <ul>
-
-    </ul>
 </body>
 </html>
 
