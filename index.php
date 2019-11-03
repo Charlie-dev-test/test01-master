@@ -31,12 +31,24 @@ function drawList($trigger = 0, $id = 0){
             if($id == $i['PARENT_ID']){
                 echo '<li>' . $i['NAME'] . '</li>';
                 //если есть дочерние выводим списком.
-                drawList(1, $i['ID']);
+                if(drawList(2, $i['ID']) > 0){
+                    drawList(1, $i['ID']);
+                }
+
             }
         }
         echo '</ul>';
     }
-
+    if($trigger == 2){
+        $count = 0;
+        foreach ($data as $item=>$value){
+            if($id == $value['PARENT_ID']){
+                $count++;
+            }
+        }
+        return $count;
+    }
+    return false;
 }
 ?>
 </body>
